@@ -12,4 +12,4 @@
     - name: Copy the artifact to the deployment directory
       ansible.builtin.copy:
         src: "/var/lib/jenkins/workspace/hellomaven/target/hellomaven-ci-1.0-SNAPSHOT.jar"
-        dest: "/opt/deployment/HelloMaven.jar"
+        dest: "/path/to/remote/deployment/directory/hellomaven-ci-1.0-SNAPSHOT.jar"
