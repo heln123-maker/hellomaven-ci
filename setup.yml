@@ -1,4 +1,4 @@
----
+//---
 - name: Deploy Maven Artifact
   hosts: localhost
   become: no  # Disable sudo for this playbook
@@ -13,4 +13,12 @@
       ansible.builtin.copy:
         src: "/var/lib/jenkins/workspace/hellomaven-ci/target/hellomaven-ci-1.0-SNAPSHOT.jar"
         dest: "/opt/deployment/HelloMaven.jar"
-        remote_src: yes
+        remote_src: yes//
+        
+- name: basic server setup
+  hosts: local
+  become: true #optional: if your tasks need root access 
+  tasks:
+    - name: example tasks
+      debug:
+        msg: "hello"
