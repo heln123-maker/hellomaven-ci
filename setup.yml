@@ -1,20 +1,4 @@
-//---
-- name: Deploy Maven Artifact
-  hosts: localhost
-  become: no  # Disable sudo for this playbook
-  tasks:
-    - name: Create deployment directory if it does not exist
-      file:
-        path: /opt/deployment
-        state: directory
-        mode: '0755'
-
-    - name: Copy the artifact to the deployment directory
-      ansible.builtin.copy:
-        src: "/var/lib/jenkins/workspace/hellomaven-ci/target/hellomaven-ci-1.0-SNAPSHOT.jar"
-        dest: "/opt/deployment/HelloMaven.jar"
-        remote_src: yes//
-        
+---        
 - name: basic server setup
   hosts: local
   become: true #optional: if your tasks need root access 
